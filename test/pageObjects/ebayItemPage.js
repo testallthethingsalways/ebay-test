@@ -8,7 +8,7 @@ class EbayItemPage extends Page {
     * define elements
     */
     get itemCenterPanel()   { return browser.element('#CenterPanel'); }
-    get itemTitle()   { return browser.element('#itemTitle'); }
+    get itemTitle()         { return browser.element('#itemTitle'); }
     get addToCartButton()   { return browser.element('#atcRedesignId_btn'); }
 
     /**

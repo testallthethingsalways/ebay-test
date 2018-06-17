@@ -17,7 +17,7 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
     //
-    // ============
+    // ============`
     // Capabilities
     // ============
     // Define your capabilities here. WebdriverIO can run multiple capabilities at the same
@@ -46,15 +46,15 @@ exports.config = {
             maxInstances: 5,
             //
             browserName: 'firefox'
+        },
+        {
+            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+            // grid with only 5 firefox instances available you can make sure that not more than
+            // 5 instances get started at a time.
+            maxInstances: 5,
+            //
+            browserName: 'chrome'
         }
-        // {
-        //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        //     // grid with only 5 firefox instances available you can make sure that not more than
-        //     // 5 instances get started at a time.
-        //     maxInstances: 5,
-        //     //
-        //     browserName: 'chrome'
-        // }
     ],
     //
     // ===================
@@ -68,7 +68,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'verbose',
+    logLevel: 'silent',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -140,7 +140,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 80000
+        timeout: 100000
     },
     //
     // =====

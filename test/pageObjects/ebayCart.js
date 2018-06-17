@@ -1,14 +1,8 @@
 const Page = require('./page');
 
-const EBAY_CART_URL = 'https://www.ebay.com.au/';
+const EBAY_CART_URL = 'https://cart.payments.ebay.com.au/';
 
 class EbayCart extends Page {
-
-    /**
-    * define elements
-    */
-    get startButton()   { return browser.element('.start-test-btn'); }
-
     /**
     * define Methods
     */
@@ -16,8 +10,8 @@ class EbayCart extends Page {
         return EBAY_CART_URL;
     }
 
-    item(item) {
-        return browser.element(`a[href="${item}"]`);
+    cartTitles() {
+        return browser.elements('[id^="sellerBucket"] [id*="title"] > a').value;;
     }
 };
 
