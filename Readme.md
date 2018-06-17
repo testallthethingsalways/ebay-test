@@ -14,10 +14,11 @@ brew cask install java8
 
 The test iterates over a defined list of items to be searched for to avoid repeating test cases.
 The test uses the page object pattern
-The test should make more assertions. I would have liked to assert on the seller, price and item being consistent thoughout the user journey. It would be much better to have tracked the item used an item number rather than the title text. I could get the item number on the cart page but it was not immediately obvious how to get this on the list/item page.
-The behaviour of the ebay site changed while I was writing the tests. Initially selecting an item from the list view, sent the user to the item view. However, later selecting an item instead showed a modal. The test attempts to handle both scenarios.
 
-getNthTitle and selectNthItem return a slightly different list of elements and should be fixed.
+The test should make more assertions. I would have liked to assert on the seller, price and item being consistent thoughout the user journey. It would be much better to have tracked the item used an item reference rather than the title text. I could get the item number on the cart page but it was not immediately obvious how to get this on the list/item page.
+Sometimes when selecting an item from the list view, ebay sent the user to the item view. Other times selecting an item instead showed a modal. The test attempts to handle both scenarios.
+
+Methods like getFirstTitle and selectFirstItem should be configurable like getNthTitle()
 
 # Execution
 `./node_modules/.bin/wdio`

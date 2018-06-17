@@ -41,27 +41,19 @@ ITEMS.forEach(function (searchItem) {
 
         describe('When the user has performed a search', function () {
 
-            it('Then the search results page should be shown', function () {
-                expect(browser.url().value).to.contain(ebayListPage.url());
-
-                ebayListPage.searchResultsPageMainContent.waitForVisible();
-                expect(ebayListPage.searchResultsPageMainContent.isVisible()).to.be.true;
-            });
-
             it('Then items matching the search should be listed', function () {
                 const results = ebayListPage.searchItemsTitle.value;
                 const numResults = results.length;
 
-                itemTitle = ebayListPage.getNthTitle(0);
+                itemTitle = ebayListPage.getFirstTitle();
                 expect(numResults).to.be.above(0);
                 expect(itemTitle.toLowerCase()).to.contain(searchItem);
             });
 
             it('Then the user should be able to add the item to the cart', function () {
-                ebayListPage.selectNthItem(1);
+                ebayListPage.selectFirstItem();
 
                 // Sometimes ebay shows a modal instead of navigating to the item page
-                // Ebay may be identifying the automated tests and performing some kind of spoofing
                 // Allow time for a modal to be shown and click the link to proceed to the item if so
                 browser.pause(1000);
 

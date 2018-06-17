@@ -14,16 +14,16 @@ class EbayListPage extends Page {
     /**
     * define Methods
     */
-    selectNthItem(n) {
+    selectFirstItem() {
         const els = this.searchItemsLinks.value;
-        const el = els[n];
+        const el = els[1];
 
         browser.elementIdClick(el.ELEMENT);
     }
 
-    getNthTitle(n) {
+    getFirstTitle() {
         const els = this.searchItemsTitle.value;
-        const el = els[n];
+        const el = els[0];
 
         return browser.elementIdText(el.ELEMENT).value;
     }
