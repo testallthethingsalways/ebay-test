@@ -1,16 +1,6 @@
 ## Approach
 Use webdriverIO which supports mutiple browsers running in parallel. If multiple browsers in parallel was not an option I would have liked to have tried https://www.cypress.io/ or https://github.com/prismagraphql/chromeless which I have yet to use
 yarn is used to manage the node dependencies
-```
-yarn add webdriverIO
-yarn add chai
-```
-
-Java is required. Java 10 is not yet supported by selenium server
-```
-brew tap caskroom/versions
-brew cask install java8
-```
 
 The test iterates over a defined list of items to be searched for to avoid repeating test cases.
 The test uses the page object pattern.
@@ -19,8 +9,18 @@ The test should make more assertions. I would have liked to assert on the seller
 Sometimes when selecting an item from the list view, ebay sent the user to the item view. Other times selecting an item instead showed a modal. The test attempts to handle both scenarios.
 
 Methods like getFirstTitle and selectFirstItem should be configurable like getNthTitle()
+# Setup
+```
+yarn
+```
 
-# Execution
+Java is required. Java 10 is not yet supported by selenium server
+```
+brew tap caskroom/versions
+brew cask install java8
+```
+
+## Execution
 `./node_modules/.bin/wdio`
 NB the initial test run is slow as the selenium server is being downloaded
 
